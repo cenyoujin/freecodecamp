@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>current weather</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./iconfont.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script>
+	
+		function showLoc(){
+		 $.getJSON('http://freegeoip.net/json/?callback=?',null,function(data){
+		 	var city = data.city;
+			var country = data.country_code;
+			showWea(city,country);
+		 });		
+		}	
+		function showWea(city,country){
+			$.ajax({
+		  		headers: {
+		  		  //"Key": "8c2a3d2dcd3edaac1486ac5ab5a1d3e4",
+		  		  Accept: "application/json",
+		  		  "Content-Type": "application/x-www-form-urlencoded"
+		  		},
+		  		url:'http://api.openweathermap.org/data/2.5/weather?q='+city+','+country+'&APPID=8c2a3d2dcd3edaac1486ac5ab5a1d3e4',
+		  	})
+		  	.done(function(result) {
+		  		console.log(result);
+			  	var wea = result.weather[0].main,
+		  		    iconId = result.weather[0].icon,
+		  		    temp = result.main.temp-273.15,
+		  		    unit = '°C';
+		  		    console.log(iconId);
+		  		var $weaLoc = $("<div id='loc'>"+country+" "+city+"</div>");
+		  		$(".weaSec").append($weaLoc);
+
+		  		iconDeal(iconId);
+		  		var $weaInfo = $("<div id='wea'>"+wea+"</div> "+"<div id='temp'>"+temp.toFixed(2)+"<a id='unitChange'>"+unit+"</a></div> ");
+		  		$(".weaDis").append($weaInfo);
+		  		
+		  		$(document).on('click','#unitChange',function(event) {
+		  			var currentTemp = '';
+					if(unit==="°C"){
+						currentTemp = temp*9/5+32; 
+						unit = "°F";
+					}
+					else{	
+						currentTemp = temp;
+						unit = '°C';
+					}					
+					$("#temp").html((currentTemp).toFixed(2)+"<a id='unitChange'>"+unit+"</a>");
+				});
+				
+		  	})
+		  	.fail(function() {
+		  		console.log("weather api get error");
+		  	});
+		}
+
+		function iconDeal(iconId){
+			var iconCode;
+			var iconId = iconId.slice(0,2);
+			switch(iconId){
+				case "01":
+				iconCode="&#xe603;";
+				break;
+				case "02":iconCode="&#xe605;";
+				break;
+				case "03":iconCode="&#xe604;";
+				break;
+				case "04":iconCode="&#xe6fc;";
+				break;
+				case "09":iconCode="&#xe607;";
+				break;
+				case "10":iconCode="&#xe606;";
+				break;
+				case "11":iconCode="&#xe609;";
+				break;
+				case "13":iconCode="&#xe60d;";
+				break;
+				case "50":iconCode="&#xe614;";
+				break;
+				default:iconCode="&#xe61a;";
+			};
+			
+		  	var $imgText = $("<i class='pull-right iconfont'>"+iconCode+"</i>");
+		  	console.log(iconCode);
+		  	$(".icoSec").append($imgText);
+
+		}
+
+			$(document).ready(function() {
+				showLoc();
+				$(".icoSec").mouseover(function(){
+                if($(this).is(":animated")){
+                      $(this).stop(true, false).fadeTo("fast", "0.5");
+                  }else {
+                      $(this).fadeTo("fast", "0.5");
+                  } 
+             }).mouseout(function(){
+                 $(this).fadeTo("fast", "1");
+            });
+		}); 	
+	</script>
+
+</head>
+<body>
+	<div class="container">
+		
+		<div class="row">
+			<h1 class="text-center">Current Weather</h1>
+		</div>
+		<div class="row">
+			<div class="row weaSec text-center"></div>
+			<div class="row icTe">
+				<div class="col-md-2 icoSec col-md-offset-4 "></div>
+				<div class="col-md-2 weaDis push-left"></div>
+			</div>	
+		</div>	
+	</div>	
+</body>
+</html>

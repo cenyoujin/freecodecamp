@@ -1,0 +1,45 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+.iconfont {
+  font-family: "iconfont";
+  font-size: 56px;
+  font-style: normal;
+  cursor: pointer; 
+}
+body{ 
+  height: 100%;
+  font-family: Palanquin,sans-serif;
+}
+
+
+h1{
+  text-align: center;
+}
+.container{
+  padding-top: 100px;
+  padding-bottom: 50px;
+  vertical-align:middle;
+  
+}
+.weaSec{
+  margin-top: 36px;
+}
+#unitChange{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icTe{
+  display: block;
+  height: 120px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+.weaDis{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: inline-block;
+}

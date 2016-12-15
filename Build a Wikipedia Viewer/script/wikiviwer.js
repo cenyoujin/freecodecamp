@@ -10,10 +10,11 @@ $(function(){
 	});
 
 	$(document).on('click', '#search-btn', function(event){ 
-		$('#result-list').html('');
+		$('this').removeClass('x onX');
 		var searchCont = $('.clearable').val();
 		console.log(searchCont);
 		if(searchCont){
+			$('li').remove();
 			$.ajax( {
 		    	url: "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchCont + "&format=json&callback=?",
 		    	type:'GET',
@@ -25,7 +26,20 @@ $(function(){
 		    		}
 		    		console.log(data);
 		    	}
-		    })
+		    }).done(function(){
+				$('h1').css('margin-top', '2%');
+		    }
+		    )
 		} ;
 	})
+
+	$(document).keydown(function(event){  
+	    if(event.keyCode===13){  
+	       $("#search-btn").click();  
+	    }  
+	 });  
 })
+
+
+
+

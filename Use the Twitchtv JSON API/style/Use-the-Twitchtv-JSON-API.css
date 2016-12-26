@@ -1,39 +1,49 @@
 .container{
 	margin-top: 8%;
 	width: 60%;
-	height: 350px;
+	height: auto;
 	background-color: #E0FFFF;
 	margin-left: auto;
 	margin-right: auto;
 }
 .nav{
+	width: 150px;
 	margin-top: 16px;
-	background-color: #FFDAB9;
+	margin-bottom: -5px;
+	/*background-color: #FFE4C4;*/
 }
 .nav li{
 	height: 25px;
 	float: left;
-	margin-left: 4px;
 	margin-right: 8px;
 	font-size: 15px;
 	cursor: pointer;
 
 }
+.nav li:hover{
+	background-color: #FFE4C4; 
+}
 #all{
 	margin-left: 14px;
 }
 .listcon{
-	height: 230px;
+	
 	clear: both;
 	
 	padding-bottom: 20px;
 }
-.strea{
 
-}
+
 .strealist{
 	list-style:none;
 	height: 50px;
 	margin-top: 5px;
 	background-color: #FFE4C4;
+	line-height: 50px;
+}
+
+img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
 }

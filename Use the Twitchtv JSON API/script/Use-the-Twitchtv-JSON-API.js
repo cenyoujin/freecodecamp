@@ -30,9 +30,9 @@ function display(data,element) {
 					var $links = stream.channel.url;
 					var $status = stream.channel.status;
 					var $hml = "<li class='strealist online-list'><div class='row text-center'>"
-								+"<div class='col-md-1 center'><img src="+$logo+"></div>"
-								+"<div class='col-md-2 center'><a href="+$links+">"+$name+"</a></div>"
-								+"<div class='col-md-8 center'>"+$status+"</div>"
+								+"<div class='col-sm-1 center'><img src="+$logo+"></div>"
+								+"<div class='col-sm-2 center'><a href="+$links+">"+$name+"</a></div>"
+								+"<div class='col-sm-8 center'>"+$status+"</div>"
 								"</div></li>";
 					$('.strea').append($hml);
 				}else{
@@ -53,18 +53,18 @@ function getOfflineInfo(element){
 				if(data.status === 404||null){
 					var $logo = 'https://static-cdn.jtvnw.net/jtv-static/404_preview-60x60.png';
 					var $hml = "<li class='strealist notexist'><div class='row text-center'>"
-								+"<div class='col-md-1 center'><img src="+$logo+"></div>"
-								+"<div class='col-md-2 center'>"+element+"</div>"
-								+"<div class='col-md-8 center'>Not Exist</div>"
+								+"<div class='col-sm-1 center'><img src="+$logo+"></div>"
+								+"<div class='col-sm-2 center'>"+element+"</div>"
+								+"<div class='col-sm-8 center'>Not Exist</div>"
 								"</div></li>";
 					$('.strea').append($hml);
 				}else{
 					var $logo = data.logo;
 					var $links = data.url;
 					var $hml = "<li class='strealist offline-list'><div class='row text-center'>"
-									+"<div class='col-md-1 center'><img src="+$logo+"></div>"
-									+"<div class='col-md-2 center'><a href="+$links+">"+element+"</a></div>"
-									+"<div class='col-md-8 center'>"+$loginStaus+"</div>"
+									+"<div class='col-sm-1 center'><img src="+$logo+"></div>"
+									+"<div class='col-sm-2 center'><a href="+$links+">"+element+"</a></div>"
+									+"<div class='col-sm-8 center'>"+$loginStaus+"</div>"
 									"</div></li>";
 					$('.strea').append($hml);
 				}

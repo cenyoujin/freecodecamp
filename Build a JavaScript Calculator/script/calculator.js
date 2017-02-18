@@ -37,34 +37,35 @@ function displayVal() {
     var calButtonArr = document.getElementsByClassName("calButton");
     for (var i = 0, len = calButtonArr.length; i < len; i++) {
         calButtonArr[i].addEventListener("click", function returnValue(e) {
-            var disNow = e.target.getElementsByTagName("span")[0].innerHTML;
+            var disNow = e.currentTarget.getElementsByTagName("span")[0].innerHTML;
             //when input num display num rather than displaying "0"+num;
             if (distxtval.innerHTML === "0" && disNow !== "AC" && disNow !== '.') {
                 distxtval.innerHTML = e.target.getElementsByTagName("span")[0].innerHTML;
             }
             //not the 1st time input value
             else {
+                var regEx = /[+\-*/]/gi;
+                var dotreg = /[.]/gi;
                 //when press AC set the screen as 0;
                 if (disNow === "AC") {
                     distxtval.innerHTML = 0;
                     return false;
                 }
                 //when press "=" calculator the answer;
-                if (disNow === "%") {
+                else if (disNow === "%") {
                     distxtval.innerHTML = (distxtval.innerHTML * 100).toFixed(2) + "%";
                 }
-                if (disNow === "+/-") {
+                else if (disNow === "+/-") {
                     distxtval.innerHTML = 0 - distxtval.innerHTML;
                 }
-                if (disNow === "=") {
+                else if (disNow === "=") {
                     distxtval.innerHTML = eval(distxtval.innerHTML);
                 }
-                var regEx = /[+\-*/]/gi;
-                var dotreg = /[.]/gi;
                 //the part before the "||" is used to unqiue the symbol "+-*/" and the another part is to unique the dot;
-                if (regEx.test(disNow) && disNow === distxtval.innerHTML[distxtval.innerHTML.length - 1] || (dotreg.test(distxtval.innerHTML) && disNow === ".")) {
+                else if (regEx.test(disNow) && disNow === distxtval.innerHTML[distxtval.innerHTML.length - 1] || (dotreg.test(distxtval.innerHTML) && disNow === ".")) {
                     distxtval.innerHTML = distxt.innerHTML;
-                } else if (disNow !== "=") {
+                }
+                else if(disNow !== "=") {
                     distxtval.innerHTML = distxt.innerHTML + disNow;
                 }
             }

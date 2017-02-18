@@ -40,7 +40,7 @@ function displayVal() {
             var disNow = e.currentTarget.getElementsByTagName("span")[0].innerHTML;
             //when input num display num rather than displaying "0"+num;
             if (distxtval.innerHTML === "0" && disNow !== "AC" && disNow !== '.') {
-                distxtval.innerHTML = e.target.getElementsByTagName("span")[0].innerHTML;
+                distxtval.innerHTML = e.currentTarget.getElementsByTagName("span")[0].innerHTML;
             }
             //not the 1st time input value
             else {

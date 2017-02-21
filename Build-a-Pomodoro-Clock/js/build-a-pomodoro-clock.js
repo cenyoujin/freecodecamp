@@ -12,7 +12,7 @@ function minuTime() {
     });
 }
 var _clockflag = false;
-
+console.log("aa");
 function addTime() {
     $(document).on('click', '#work-time-add,#break-time-add', function(event) {
         var timeNum = $(this).prev().children('span').text();

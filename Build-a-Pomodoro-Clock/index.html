@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build a Pomodoro Clock</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/build-a-pomodoro-clock.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+        <h1>Pomodoro Clock</h1>
+
+        <div class="top">
+            <div class="top-left">
+                <p>Work Time</p>
+                <div class="time-set">
+                    <button type="button" class="time-min" id="work-time-min">-</button>
+                    <div class="time-display">
+                        <span id="work-time">1</span>
+                    </div>
+                    <button type="button" class="time-add" id="work-time-add">+</button>
+                </div>
+            </div>
+
+            <div class="top-right">
+                <p>Break Time</p>
+                <div class="time-set">
+                  <button type="button" class="time-min" id="break-time-min">-</button>
+                  <div class="time-display">
+                      <span id="break-time">5</span>
+                  </div>
+                  <button type="button" class="time-add" id="break-time-add">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <span>1</span>
+        </div>
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="./js/build-a-pomodoro-clock.js"></script>
+  </body>
+</html>

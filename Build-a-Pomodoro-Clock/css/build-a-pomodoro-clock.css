@@ -1,0 +1,68 @@
+*{
+  margin: 0;
+  padding: 0;
+
+}
+.container {
+  margin: auto;
+  text-align: center;
+  width: 900px;
+  height: 300px;
+}
+.top {
+  margin: auto;
+  margin-top: 5%;
+  width: 200px;
+  height: 100px;
+}
+button {
+  background-color: #FFF;
+  border: none;
+  outline: none;
+}
+/*top left*/
+.top-left {
+  margin: 0 auto;
+  clear: both;
+  float: left;
+}
+
+.time-min {
+  float: left;
+}
+.time-display {
+    float: left;
+    width: 2em;
+    text-align: center;
+}
+.time-display span{
+  width: 2em;
+}
+.time-add {
+  float: left;
+}
+/*top right*/
+.top-right {
+  width: auto;
+  float: right;
+}
+
+
+
+.time-set{
+  display: -webkit-flex;
+  display : flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.bottom {
+  margin: auto;
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.bottom span {
+  line-height: 200px;
+}
